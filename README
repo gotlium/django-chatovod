@@ -1,0 +1,23 @@
+Chatovod  - chat widget for Django
+======================
+http://github.com/gotlium/django-chatovod
+
+
+What's that
+-----------
+This reusable Django app will be integrate a chat widget from Chatovod.
+------------------------------------------
+
+Installation:
+----------
+1. sudo pip install django-chatovod
+2. Add the 'chatovod' application to 'INSTALLED_APPS' in your
+    settings file (usually 'settings.py')
+3. Configure widget on your settings. By default:
+    CHAT_WIDTH = '900'
+    CHAT_HEIGHT = '500'
+    CHAT_DOMAIN = 'dletest.chatovod.ru'
+    CHAT_API_KEY = '07a128c26a0e626c6afcc5ecd8ed800c'
+4. Use in your templates:
+    {% load chatovod %}
+    {% chatovod %}
