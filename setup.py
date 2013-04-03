@@ -1,5 +1,5 @@
 from setuptools import setup, find_packages
-from calendar_sms import VERSION
+from chatovod import VERSION
 
 
 setup(

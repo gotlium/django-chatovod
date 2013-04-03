@@ -8,6 +8,7 @@ What's that
 This reusable Django app will be integrate a chat widget from Chatovod.
 ------------------------------------------
 
+
 Installation:
 ----------
 1. sudo pip install django-chatovod
