@@ -11,8 +11,13 @@ setup(
     author="GoTLiuM InSPiRiT",
     author_email='gotlium@gmail.com',
     url='http://github.com/gotlium/django-chatovod',
-    packages=find_packages(),
+    packages=find_packages(exclude=['demo']),
     include_package_data=True,
+    package_data={
+        'chatovod': [
+            'templates/chatovod/*.html',
+        ],
+    },
     install_requires=['setuptools', 'django'],
     zip_safe=False,
     classifiers=[
