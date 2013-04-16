@@ -7,7 +7,7 @@ setup(
     version=".".join(map(str, VERSION)),
     description='Chatovod  - chat widget for Django.',
     keywords="django chat chatovod",
-    long_description=open('README').read(),
+    long_description=open('README.rst').read(),
     author="GoTLiuM InSPiRiT",
     author_email='gotlium@gmail.com',
     url='http://github.com/gotlium/django-chatovod',
