@@ -5,6 +5,7 @@ What's that
 -----------
 This reusable Django app will be integrate a chat widget from Chatovod.Ru
 
+
 Installation:
 -------------
 1. Package:
@@ -21,8 +22,8 @@ Installation:
 
     $  sudo pip install django-chatovod
 
-2. Add the 'chatovod' application to 'INSTALLED_APPS' in your
-    settings file (usually 'settings.py')
+
+2. Add the ``chatovod`` application to ``INSTALLED_APPS`` in your settings file (usually ``settings.py``)
 
 3. Configure widget on your settings. By default:
 
@@ -44,6 +45,6 @@ Installation:
         <title>Chatovod example</title>
     </head>
     <body>
-    {% chatovod %}
+        {% chatovod %}
     </body>
     </html>

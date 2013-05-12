@@ -12,6 +12,8 @@ register = template.Library()
 
 @register.inclusion_tag('chatovod/chat.html', takes_context=True)
 def chatovod(context):
+    if 'request' not in context:
+        return
     request = context['request']
     if request.user.is_authenticated():
         query = {
