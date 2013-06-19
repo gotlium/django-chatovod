@@ -15,7 +15,7 @@ def chatovod(context):
     if 'request' not in context:
         return
     request = context['request']
-    if request.user.is_authenticated():
+    if request.user.is_authenticated() and settings.CHAT_API_KEY:
         auth_hash = u'%s%s%s' % (request.user.username, request.user.email,
                                  settings.CHAT_API_KEY)
         query = {
