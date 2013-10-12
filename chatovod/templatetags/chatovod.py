@@ -27,7 +27,12 @@ def chatovod(context):
         query.update(settings.CHAT_QUERY)
     else:
         query = settings.CHAT_QUERY
+
+    js_url = 'http://%s/widget.js?%s' % (
+        settings.CHAT_DOMAIN, urlencode(query))
+    iframe_url = 'http://%s/widget/?%s' % (
+        settings.CHAT_DOMAIN, urlencode(query))
     return {
-        'chat_url': 'http://%s/widget.js?%s' % (
-            settings.CHAT_DOMAIN, urlencode(query))
+        'chat_url': iframe_url if settings.IFRAME else js_url,
+        'iframe': settings.IFRAME
     }

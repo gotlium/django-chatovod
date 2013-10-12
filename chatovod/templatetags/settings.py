@@ -14,3 +14,4 @@ query = {
 }
 
 CHAT_QUERY = getattr(settings, 'CHAT_QUERY', query)
+IFRAME = getattr(settings, 'CHAT_IFRAME', False)
