@@ -34,5 +34,7 @@ def chatovod(context):
         settings.CHAT_DOMAIN, urlencode(query))
     return {
         'chat_url': iframe_url if settings.IFRAME else js_url,
-        'iframe': settings.IFRAME
+        'iframe': settings.IFRAME,
+        'width': settings.CHAT_WIDTH,
+        'height': settings.CHAT_HEIGHT,
     }
