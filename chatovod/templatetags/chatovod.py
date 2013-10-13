@@ -30,11 +30,12 @@ def chatovod(context):
 
     js_url = 'http://%s/widget.js?%s' % (
         settings.CHAT_DOMAIN, urlencode(query))
-    iframe_url = 'http://%s/widget/?%s' % (
+    frame_url = 'http://%s/widget/?%s' % (
         settings.CHAT_DOMAIN, urlencode(query))
+
     return {
-        'chat_url': iframe_url if settings.IFRAME else js_url,
-        'iframe': settings.IFRAME,
+        'chat_url': frame_url if settings.CHAT_TYPE == 'iframe' else js_url,
+        'type': settings.CHAT_TYPE,
         'width': settings.CHAT_WIDTH,
         'height': settings.CHAT_HEIGHT,
     }

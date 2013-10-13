@@ -14,4 +14,6 @@ query = {
 }
 
 CHAT_QUERY = getattr(settings, 'CHAT_QUERY', query)
-IFRAME = getattr(settings, 'CHAT_IFRAME', False)
+
+# async, iframe or none
+CHAT_TYPE = getattr(settings, 'CHAT_TYPE', 'async')

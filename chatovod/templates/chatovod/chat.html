@@ -1,5 +1,16 @@
 {% if chat_url %}
-    {% if iframe %}
+    {% if type == 'async' %}
+      <div id="chatovod"></div>
+      <script type="text/javascript">
+        (function() {
+            var po = document.createElement('script');
+            po.type = 'text/javascript'; po.charset = "UTF-8"; po.async = true;
+            po.src = '{{ chat_url|safe }}&divId=chatovod';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(po, s);
+        })();
+      </script>
+    {% elif type == 'iframe' %}
       <iframe src="{{ chat_url|safe }}" frameborder="0" marginheight="0"
               marginwidth="0" width="{{width}}" height="{{height}}"></iframe>
     {% else %}
