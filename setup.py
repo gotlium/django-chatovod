@@ -18,7 +18,6 @@ setup(
             'templates/chatovod/*.html',
         ],
     },
-    install_requires=['setuptools', 'django'],
     zip_safe=False,
     classifiers=[
         'Development Status :: 5 - Production/Stable',

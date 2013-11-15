@@ -5,15 +5,18 @@
         (function() {
             var po = document.createElement('script');
             po.type = 'text/javascript'; po.charset = "UTF-8"; po.async = true;
-            po.src = '{{ chat_url|safe }}&divId=chatovod';
+            po.src = '{{ chat_url|safe }}&divId={{ divId }}';
             var s = document.getElementsByTagName('script')[0];
             s.parentNode.insertBefore(po, s);
         })();
       </script>
-    {% elif type == 'iframe' %}
+    {% else %}
+    {% if type == 'iframe' %}
       <iframe src="{{ chat_url|safe }}" frameborder="0" marginheight="0"
               marginwidth="0" width="{{width}}" height="{{height}}"></iframe>
     {% else %}
-      <script type="text/javascript" charset="UTF-8" src="{{ chat_url|safe }}"></script>
+      <script type="text/javascript" charset="UTF-8"
+              src="{{ chat_url|safe }}"></script>
+    {% endif %}
     {% endif %}
 {% endif %}

@@ -1,4 +1,2 @@
-include README
-include LICENSE
-include AUTHORS
-recursive-include chatovod/templates/chatovod *.html
+recursive-exclude * .DS_Store
+recursive-include chatovod *.py *.html

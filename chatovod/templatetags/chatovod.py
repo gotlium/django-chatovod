@@ -2,9 +2,10 @@
 
 from urllib import urlencode
 from hashlib import md5
+
 from django import template
 
-import settings
+import defaults
 
 
 register = template.Library()
@@ -12,30 +13,29 @@ register = template.Library()
 
 @register.inclusion_tag('chatovod/chat.html', takes_context=True)
 def chatovod(context):
-    if 'request' not in context:
-        return
-    request = context['request']
-    if request.user.is_authenticated() and settings.CHAT_API_KEY:
-        auth_hash = u'%s%s%s' % (request.user.username, request.user.email,
-                                 settings.CHAT_API_KEY)
+    request = context.get('request')
+    if request and request.user.is_authenticated() and defaults.CHAT_API_KEY:
+        auth_hash = u'%s%s%s' % (
+            request.user.username, request.user.email, defaults.CHAT_API_KEY)
         query = {
+            'akey': md5(auth_hash.encode('utf8')).hexdigest(),
             'anick': request.user.username.encode('utf8'),
             'aemail': request.user.email,
-            'amode': 'django',
-            'akey': md5(auth_hash.encode('utf8')).hexdigest()
+            'amode': defaults.CHAT_MODE,
         }
-        query.update(settings.CHAT_QUERY)
+        query.update(defaults.CHAT_QUERY)
     else:
-        query = settings.CHAT_QUERY
+        query = defaults.CHAT_QUERY
 
-    js_url = 'http://%s/widget.js?%s' % (
-        settings.CHAT_DOMAIN, urlencode(query))
-    frame_url = 'http://%s/widget/?%s' % (
-        settings.CHAT_DOMAIN, urlencode(query))
+    if defaults.CHAT_TYPE == 'iframe':
+        chat_url = 'http://%s/widget/?%s'
+    else:
+        chat_url = 'http://%s/widget.js?%s'
 
     return {
-        'chat_url': frame_url if settings.CHAT_TYPE == 'iframe' else js_url,
-        'type': settings.CHAT_TYPE,
-        'width': settings.CHAT_WIDTH,
-        'height': settings.CHAT_HEIGHT,
+        'type': defaults.CHAT_TYPE,
+        'width': defaults.CHAT_WIDTH,
+        'height': defaults.CHAT_HEIGHT,
+        'divId': defaults.CHAT_ASYNC_DIV_ID,
+        'chat_url': chat_url % (defaults.CHAT_DOMAIN, urlencode(query)),
     }
