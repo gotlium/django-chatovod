@@ -11,10 +11,10 @@ This reusable Django app will be integrate a chat widget from Chatovod.Ru
     :target: https://travis-ci.org/gotlium/django-chatovod
 .. image:: https://coveralls.io/repos/gotlium/django-chatovod/badge.png?branch=master
     :target: https://coveralls.io/r/gotlium/django-chatovod?branch=master
-.. image:: https://pypip.in/v/django-chatovod/badge.png
+.. image:: https://img.shields.io/pypi/v/django-chatovod.svg
     :alt: Current version on PyPi
     :target: https://crate.io/packages/django-chatovod/
-.. image:: https://pypip.in/d/django-chatovod/badge.png
+.. image:: https://img.shields.io/pypi/dm/django-chatovod.svg
     :alt: Downloads from PyPi
     :target: https://crate.io/packages/django-chatovod/
 
